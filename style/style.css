@@ -1,0 +1,219 @@
+/*Обнуляющие стили*/
+*{
+	padding: 0;
+	margin: 0;
+	border: 0;
+}
+*,*:before,*:after{
+	-moz-box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+:focus,:active{outline: none;}
+a:focus,a:active{outline: none;}
+
+nav,footer,header,aside{display: block;}
+
+html,body{
+	height: 100%;
+	width: 100%;
+	font-size: 100%;
+	line-height: 1;
+	font-size: 14px;
+	-ms-text-size-adjust: 100%;
+	-moz-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+}
+input,button,textarea{font-family:inherit;}
+
+input::-ms-clear{display: none;}
+button{cursor: pointer;}
+button::-moz-focus-inner {padding:0;border:0;}
+a, a:visited{text-decoration: none;}
+a:hover{text-decoration: none;}
+ul li{list-style: none;}
+img{vertical-align: top;}
+
+h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight: 400;}
+/*--------------------*/
+
+html, body {
+    font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+
+.container {
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+/* стили шапки */
+
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 50;
+}
+/* стиль бекграунда в хедере */
+.header::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color:antiquewhite;
+    z-index: 4;
+}
+
+.header__body {
+    position: relative;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between; 
+}
+.header__logo {
+    position: relative;
+    z-index: 4;
+    flex: 0 0 70px;
+}
+.header__logo img {
+    padding-left: 15px;
+    max-width: 100%;
+    border-radius: 50%;
+}
+
+.menu {
+    position: relative;
+    z-index: 4;
+}
+.menu__list {
+    display: flex;
+}
+.menu__item {
+    padding-right: 25px;
+}
+.menu__link {
+    font-size: 18px;
+    color: rgb(0, 162, 255);
+    text-transform: uppercase;
+}
+
+/* основной контент */
+
+.main {
+    padding-top: 100px;
+}
+
+.main__text {
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0px 0px 30px 0px;
+}
+
+
+
+@media (max-width: 768px) {
+    body.lock {
+        overflow: hidden;
+    }
+    /* стили иконки бургера */
+    .header__burger-icon {
+        display: block;
+        position: relative;
+        /* высота и ширина иконки бургера*/
+        width: 30px; 
+        height: 20px;
+        z-index: 4;
+    }
+    .header__burger-icon span {
+        position: absolute;
+        /* цвет иконки бургера */
+        background-color: rgb(0, 162, 255);
+        left: 0;
+        width: 100%;
+        /* толщина полосок бургера */
+        height: 2px;
+        top: 50%;
+        transform: translate(0px,-50%);
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger-icon::before,
+    .header__burger-icon::after {
+        content: '';
+        /* цвет иконки бургера */
+        background-color: rgb(0, 162, 255);
+        position: absolute;
+        width: 100%;
+        /* толщина полосок бургера */
+        height: 2px;
+        left: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger-icon::before {
+        top: 0;
+    }
+    .header__burger-icon::after {
+        bottom: 0;
+    }
+    /* ========================= */
+    .header__body {
+        height: 50px;
+    }
+    .header__logo {
+        flex: 0 0 45px;
+    }
+    .header__logo img {
+        padding-left: 0px;
+    }
+    .menu {
+        overflow: auto;
+        z-index: 2;
+        position: fixed;
+        top: -100%;
+        left: 0;
+        padding-top: 50px;
+        height: 100%;
+        width: 100%;
+        background-color: rgb(1, 206, 221);
+        opacity: 95%;
+        transition: all 0.3s ease 0s;
+    }
+    .menu__list {
+        display: block;
+        text-align: center;
+        padding: 10px;
+    }
+    .menu__item {
+        padding: 10px 0px;
+    }
+    .menu__item a {
+        color:antiquewhite;
+    }
+    .main {
+        padding-top: 60px;
+    }
+    /* когда active */
+    .menu.active {
+        top: 0;
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger-icon.active span {
+        transform: scale(0);
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger-icon.active::before {
+        top: 9px;
+        transform: rotate(45deg);
+        transition: all 0.3s ease 0s;
+    }
+    .header__burger-icon.active::after {
+        bottom: 9px;
+        transform: rotate(-45deg);
+        transition: all 0.3s ease 0s;
+    }
+
+}
